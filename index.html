@@ -3,45 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Festejando a conexão entre o campo e a cidade</title>
+  <title>Festejando a Conexão entre o Campo e a Cidade</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <script>
+    // Smooth scroll for anchor links
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+          });
+        });
+      });
+
+      // Modal Controls
+      const modal = document.getElementById("modal");
+      const btn = document.getElementById("openModal");
+      const closeBtn = document.getElementById("closeModal");
+
+      btn.addEventListener("click", function() {
+        modal.style.display = "block";
+      });
+
+      closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+      });
+
+      window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+  </script>
 </head>
 <body>
+  <nav>
+    <div class="nav-container">
+      <h1 class="logo">Campo&Cidade</h1>
+      <ul class="nav-links">
+        <li><a href="#intro">Início</a></li>
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#events">Eventos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
   <header>
-    <h1>Festejando a Conexão entre o Campo e a Cidade</h1>
-    <p>União, Tradição e Progresso em Harmonia</p>
+    <div class="header-content">
+      <h1>Festejando a Conexão entre o Campo e a Cidade</h1>
+      <p>União, Tradição e Progresso em Harmonia</p>
+      <button id="openModal" aria-label="Saiba Mais sobre o evento">Saiba Mais</button>
+    </div>
   </header>
   <main>
-    <section class="intro">
+    <section id="intro" class="intro">
       <h2>Conectar o Campo e a Cidade</h2>
       <p>
-        Celebrando a colaboração que fortalece a agricultura, a cultura e a vida social. 
-        Uma festa que destaca a importância da parceria entre o rural e o urbano.
+        Celebrando a colaboração que fortalece a agricultura, a cultura e a vida social. Uma festa que destaca a importância da parceria entre o rural e o urbano.
       </p>
-    </section>
-    <section class="image-container">
-      <div class="image-wrapper campo">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Campo com lavoura" />
-        <p>Natureza, agricultura e raízes</p>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Campo com lavoura" />
+          <h3>Agricultura Sustentável</h3>
+          <p>Práticas modernas que preservam a natureza e trazem prosperidade ao campo.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=400&q=80" alt="Cidade à noite" />
+          <h3>Urbanismo e Inovação</h3>
+          <p>Como a tecnologia e o crescimento urbano respeitam e apoiam o meio rural.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=400&q=80" alt="Pessoas em roda de festa" />
+          <h3>Cultura e Tradição</h3>
+          <p>Música, arte e gastronomia que unem as duas realidades.</p>
+        </article>
       </div>
-      <div class="image-wrapper cidade">
-        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=600&q=80" alt="Cidade à noite" />
-        <p>Vida urbana vibrante e moderna</p>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <h2>Galeria de Fotos</h2>
+      <div class="gallery-grid">
+        <figure><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=300&q=80" alt="Colheita no campo" /><figcaption>Colheita no campo</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=300&q=80" alt="Café na cidade" /><figcaption>Café urbano</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=300&q=80" alt="Festa tradicional" /><figcaption>Festa tradicional</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1445820134104-ef123d4d5068?auto=format&fit=crop&w=300&q=80" alt="Praça na cidade" /><figcaption>Praça urbana</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=300&q=80" alt="Ferramentas agrícolas" /><figcaption>Ferramentas agrícolas</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=300&q=80" alt="Luzes da cidade" /><figcaption>Luzes da cidade</figcaption></figure>
       </div>
     </section>
-    <section class="celebration">
-      <h2>A Festa</h2>
-      <p>
-        Música, gastronomia e arte se unindo para celebrar o melhor do campo e da cidade.
-        Venha participar e experimentar essa conexão única!
-      </p>
-      <button>Saiba Mais</button>
+
+    <section id="events" class="events">
+      <h2>Próximos Eventos</h2>
+      <ul class="event-list">
+        <li>
+          <strong>Feira Agroecológica</strong> - 15 de Julho <br />
+          Conheça os produtores locais e seus produtos orgânicos e artesanais.
+        </li>
+        <li>
+          <strong>Concerto de Música Regional</strong> - 22 de Julho <br />
+          Música que une o som da cidade e a tradição do campo, ao vivo na praça central.
+        </li>
+        <li>
+          <strong>Oficina de Gastronomia</strong> - 29 de Julho <br />
+          Aprenda receitas típicas que misturam ingredientes rurais e urbanos.
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Fale Conosco</h2>
+      <form action="#" method="post" aria-label="Formulário de contato">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" required placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem:</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Escreva sua mensagem aqui"></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
     </section>
   </main>
+  
   <footer>
     <p>© 2024 Festejando a conexão entre o campo e a cidade | Toda cultura merece ser celebrada</p>
   </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1">
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close" aria-label="Fechar informação">×</button>
+      <h2 id="modalTitle">Sobre o Evento</h2>
+      <p id="modalDesc">
+        Festejamos o encontro entre dois mundos que se complementam. O campo traz vida, alimento e tradição; a cidade traz inovação, cultura e modernidade. Juntos criamos uma harmonia que queremos celebrar com música, arte, gastronomia, debates e muita diversão. Venha fazer parte desta conexão que fortalece nossa identidade e nosso futuro.
+      </p>
+    </div>
+  </div>
 </body>
 </html>
 
