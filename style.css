@@ -3,106 +3,163 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background: linear-gradient(135deg, #a7d8de 0%, #f0f4f8 60%, #bbd9a8 100%);
+  color: #2e3a2b;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Cabeçalho */
 header {
-  background: linear-gradient(135deg, #00b894, #0984e3);
-  color: white;
-  padding: 30px 0;
+  background: rgba(34, 49, 28, 0.8);
+  color: #e9f0db;
+  padding: 3rem 2rem;
   text-align: center;
+  box-shadow: 0 4px 6px rgba(25, 40, 16, 0.4);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
 header h1 {
+  font-weight: 700;
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 4px #1e2e16;
+  margin-bottom: 0.5rem;
 }
 
-nav ul {
-  list-style: none;
+header p {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #c7d9bd;
+}
+
+main {
+  flex-grow: 1;
+  padding: 3rem 1.5rem 4rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.intro, .celebration {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem 2.5rem;
+  border-radius: 25px;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 16px rgba(34, 57, 22, 0.15);
+}
+
+.intro h2, .celebration h2 {
+  color: #49773b;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #93c572;
+  padding-bottom: 0.3rem;
+}
+
+.intro p, .celebration p {
+  font-size: 1.15rem;
+  color: #3e4f2e;
+  font-weight: 500;
+}
+
+.image-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
+.image-wrapper {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(33, 53, 21, 0.2);
+  overflow: hidden;
+  text-align: center;
+  max-width: 300px;
+  flex: 1 1 300px;
+  transition: transform 0.3s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.image-wrapper:hover {
+  transform: translateY(-8px) scale(1.05);
 }
 
-/* Seções principais */
-main {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-section {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-section p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-/* Imagens das seções */
-section img {
+.image-wrapper img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 4px solid #8bbf70;
 }
 
-/* Estilo da seção "Conexão" */
-.conexao {
-  background-color: #ffeaa7;
-  text-align: center;
-}
-
-.conexao h2 {
-  font-size: 2.5rem;
-  color: #d63031;
-}
-
-.conexao p {
-  font-size: 1.3rem;
-  font-style: italic;
-  color: #2d3436;
-}
-
-/* Rodapé */
-footer {
-  background-color: #2d3436;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  margin-top: 40px;
-}
-
-footer p {
+.image-wrapper p {
+  margin: 1rem 0 1.3rem;
+  font-weight: 600;
+  color: #4e6a34;
   font-size: 1rem;
+  font-style: italic;
 }
+
+.celebration button {
+  background: #567d2b;
+  color: #e9f0db;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(86, 125, 43, 0.7);
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 2rem auto 0;
+  letter-spacing: 1px;
+}
+
+.celebration button:hover,
+.celebration button:focus {
+  background: #3c5d1f;
+  outline: none;
+  box-shadow: 0 8px 25px rgba(60, 93, 31, 0.9);
+}
+
+footer {
+  text-align: center;
+  background: #2e3a2b;
+  color: #c7d9bd;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  box-shadow: 0 -3px 6px rgba(12, 21, 9, 0.7);
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+  .image-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .image-wrapper {
+    max-width: 100%;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .intro h2, .celebration h2 {
+    font-size: 1.6rem;
+  }
+}
+
